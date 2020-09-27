@@ -12,7 +12,6 @@
 		9B4D6878251D38F100D1E225 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4D6877251D38F100D1E225 /* ContentView.swift */; };
 		9B4D687A251D38F200D1E225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B4D6879251D38F200D1E225 /* Assets.xcassets */; };
 		9B4D687D251D38F200D1E225 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B4D687C251D38F200D1E225 /* Preview Assets.xcassets */; };
-		9B4D6888251D38F300D1E225 /* BoardGameListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4D6887251D38F300D1E225 /* BoardGameListTests.swift */; };
 		9B63B498251D3A2100F821BB /* Environments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63B491251D3A2100F821BB /* Environments.swift */; };
 		9B63B499251D3A2100F821BB /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9B63B493251D3A2100F821BB /* Staging.xcconfig */; };
 		9B63B49A251D3A2100F821BB /* Development.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9B63B495251D3A2100F821BB /* Development.xcconfig */; };
@@ -81,7 +80,6 @@
 		9B4D687C251D38F200D1E225 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9B4D687E251D38F200D1E225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B4D6883251D38F300D1E225 /* BoardGameListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardGameListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B4D6887251D38F300D1E225 /* BoardGameListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameListTests.swift; sourceTree = "<group>"; };
 		9B4D6889251D38F300D1E225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B63B491251D3A2100F821BB /* Environments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environments.swift; sourceTree = "<group>"; };
 		9B63B493251D3A2100F821BB /* Staging.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 				9BA0C51E2520F86F0025DD35 /* Mocks */,
 				9BA0C51D2520F8680025DD35 /* Fixtures */,
 				9BA0C51C2520F8550025DD35 /* Scenes */,
-				9B4D6887251D38F300D1E225 /* BoardGameListTests.swift */,
 				9B4D6889251D38F300D1E225 /* Info.plist */,
 			);
 			path = BoardGameListTests;
@@ -755,7 +752,6 @@
 			files = (
 				9BA0C5312520F9350025DD35 /* GamesListViewModelTests.swift in Sources */,
 				9BA0C5222520F89A0025DD35 /* ErrorTests.swift in Sources */,
-				9B4D6888251D38F300D1E225 /* BoardGameListTests.swift in Sources */,
 				9BA0C5282520F8C70025DD35 /* NetworkingServiceMock.swift in Sources */,
 				9BA0C5382520F9490025DD35 /* GameDetailViewModelTests.swift in Sources */,
 			);
