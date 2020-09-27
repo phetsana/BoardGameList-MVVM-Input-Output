@@ -8,7 +8,12 @@
 import Foundation
 import Combine
 
-final class GamesListViewModel: ObservableObject, ViewModel {
+enum GamesListViewModelError: Error {
+    case loading
+    case other(Error)
+}
+
+class GamesListViewModel: ObservableObject, ViewModel {
     let input: Input
     let output: Output
     
@@ -17,7 +22,7 @@ final class GamesListViewModel: ObservableObject, ViewModel {
     private var subscriptions = Set<AnyCancellable>()
     
     private let onAppearSubject = PassthroughSubject<Void, Never>()
-    private let gamesDriver = CurrentValueSubject<[GameItem], Never>([])
+    private let gamesDriver = CurrentValueSubject<[GameItem], GamesListViewModelError>([])
 
     private let apiService: NetworkingService
     
@@ -49,8 +54,12 @@ final class GamesListViewModel: ObservableObject, ViewModel {
             .send(request)
             .map { $0.games.map(GameItem.init) }
             .receive(on: RunLoop.main)
-            .sink { (_) in
-
+            .mapError { _ in return GamesListViewModelError.loading }
+            .sink { [weak self] (completion) in
+                if case .failure = completion {
+                    self?.gamesDriver.send(completion: completion)
+                    self?.objectWillChange.send()
+                }
             } receiveValue: { [weak self] (games) in
                 self?.gamesDriver.send(games)
                 self?.objectWillChange.send()
@@ -65,7 +74,7 @@ extension GamesListViewModel {
     }
         
     struct Output {
-        let games: CurrentValueSubject<[GameItem], Never>
+        let games: CurrentValueSubject<[GameItem], GamesListViewModelError>
     }
     
     struct GameItem: Identifiable, Equatable {
