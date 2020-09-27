@@ -1,0 +1,19 @@
+//
+//  Production.xcconfig
+//  BoardGameAtlasTest
+//
+//  Created by Phetsana PHOMMARINH on 20/09/2020.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Server URL
+SERVER_URL = https:/$()/api.boardgameatlas.com
+
+// Keys
+CLIENT_ID = 4ESSA0yrVW
+
+// App Settings
+PRODUCT_DISPLAY_NAME = BoardGame
+PRODUCT_BUNDLE_IDENTIFIER = fr.phetsana.boardgame
