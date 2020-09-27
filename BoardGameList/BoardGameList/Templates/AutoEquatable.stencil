@@ -1,0 +1,27 @@
+// swiftlint:disable file_length
+
+// MARK: - AutoEquatable for Enums
+{% for type in types.enums where type.implements.AutoEquatable or type|annotated:"AutoEquatable" %}
+// MARK: - {{ type.name }} AutoEquatable
+extension {{ type.name }}: Equatable {}
+func == (lhs: {{ type.name }}, rhs: {{ type.name }}) -> Bool {
+    switch (lhs, rhs) {
+    {% for case in type.cases %}
+    {% if case.hasAssociatedValue %}case (.{{ case.name }}(let lhs), .{{ case.name }}(let rhs)):{% else %}case (.{{ case.name }}, .{{ case.name }}):{% endif %}
+        {% if not case.hasAssociatedValue %}return true{% else %}
+        {% if case.associatedValues.count == 1 %}
+        {% if case.associatedValues[0].type.name == "Error" %}
+        return lhs.isEqual(to: rhs)
+        {% else %}
+        return lhs == rhs
+        {% endif %}
+        {% else %}
+        {% for associated in case.associatedValues %}if lhs.{{ associated.externalName }} != rhs.{{ associated.externalName }} { return false }
+        {% endfor %}return true
+        {% endif %}
+        {% endif %}
+    {% endfor %}
+    {{ 'default: return false' if type.cases.count > 1 }}
+    }
+}
+{% endfor %}

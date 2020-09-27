@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  BoardGameList
+
+  Created by Phetsana PHOMMARINH on 26/09/2020.
+  
+*/
+
+"game_list_title" = "Popular game board";
+
+"game_detail_players" = "Players";
+"game_detail_description" = "Description";

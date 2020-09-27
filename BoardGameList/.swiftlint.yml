@@ -1,0 +1,17 @@
+disabled_rules:
+  - trailing_whitespace
+
+excluded:
+  - BoardGameList/Generated/Sourcery/
+  - BoardGameList/Generated/Rswift/
+  - Pods
+
+line_length:
+  ignores_urls: true
+
+identifier_name:
+  excluded: # excluded via string array
+    - id
+
+nesting:
+  type_level: 2
