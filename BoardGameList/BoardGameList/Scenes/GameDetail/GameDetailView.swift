@@ -64,3 +64,24 @@ struct GameDetailItemView: View {
         .eraseToAnyView()
     }
 }
+
+struct GameDetailView_Previews: PreviewProvider {
+    static let gameDTO =
+        GameDTO(id: "game id",
+                name: "Detective Club",
+                imageUrl: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQw71ksfWx6nRCU32a5VAdBuMmURsOCD6U9xQ&usqp=CAU"),
+                thumbUrl: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQw71ksfWx6nRCU32a5VAdBuMmURsOCD6U9xQ&usqp=CAU"),
+                yearPublished: 2007,
+                minPlayers: 3, maxPlayers: 6,
+                description: "Description ablabla",
+                primaryPublisher: "Publisher",
+                rank: 2, trendingRank: 4)
+    static let gameItem = GamesListViewModel.GameItem(game: Self.gameDTO)
+    static let viewModel = GameDetailViewModel(game: Self.gameItem)
+
+    static var previews: some View {
+        GameDetailView()
+            .environmentObject(Self.viewModel)
+            .previewDisplayName("Default")
+    }
+}
